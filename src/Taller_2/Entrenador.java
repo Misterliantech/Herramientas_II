@@ -29,7 +29,7 @@ public class Entrenador extends SeleccionFutbol {
     @Override
     public void PartidoFutbol(){
         
-        System.out.println("Digite un partido(Clase Entrenador)");
+        System.out.println("Dirige un partido(Clase Entrenador)");
     }
     
     public void PlanificarEntrenamiento(){

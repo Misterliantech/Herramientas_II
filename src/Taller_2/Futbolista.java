@@ -39,7 +39,7 @@ public class Futbolista extends SeleccionFutbol {
         System.out.println("Juega un Partido(Clase Futbolista)");
     }
     
-    public void entrevista(){
+    public void Entrevista(){
         System.out.println("Da una entrevista");
     }
     

@@ -22,7 +22,52 @@ public class MetodoMain {
         
         for (SeleccionFutbol integrante: integrantes){
             
-            
+            System.out.println(integrante.getNombre()+ "  " + integrante.getApellidos() + " -> ");
+            integrante.Concentrarse();
         }
+        
+        System.out.println("Todos los integrantes viajan a jugar un partido.");
+        
+        for (SeleccionFutbol integrante : integrantes){
+            
+            System.out.println(integrante.getNombre()+ "  " + integrante.getApellidos() + " -> ");
+            integrante.viajar();
+        }
+        
+        System.out.println("Todos los integrantes tienen su funcion de entrenamiento");
+        
+        for (SeleccionFutbol integrante : integrantes){
+            
+            System.out.println(integrante.getNombre() + "  " + integrante.getApellidos() + " -> ");
+            integrante.Entrenamiento();
+        }
+        
+        System.out.println("Todos los integrantes tienen su funcion de partido de futbol.");
+        
+        for (SeleccionFutbol integrante : integrantes){
+            
+            System.out.println(integrante.getNombre() + "  " + integrante.getApellidos() + " -> ");
+            
+            integrante.PartidoFutbol();
+        }
+        
+        //Metodos Privados de clase
+        //Planificar Entrenamiento
+        
+        System.out.println("Planificar Entrenamiento");
+        System.out.println(delBosque.getNombre() + " " + delBosque.getApellidos() + " -> ");
+        ((Entrenador)delBosque).PlanificarEntrenamiento();
+        
+        //Entrevista
+        
+          System.out.println("Entrevista");
+        System.out.println(James.getNombre() + " " + James.getApellidos() + " -> ");
+        ((Futbolista)James).Entrevista();
+        
+        //Masaje
+        
+        System.out.println("Dar Masaje");
+        System.out.println(RaulMartinez.getNombre() + RaulMartinez.getApellidos() + " -> ");
+        ((Masajista)RaulMartinez).DarMasaje();
     }
 }

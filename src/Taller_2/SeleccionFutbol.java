@@ -48,7 +48,7 @@ public  abstract class SeleccionFutbol {
     
     public void viajar(){
         
-        System.out.println("Viajar (Clase Padre");
+        System.out.println("Viajar (Clase Padre)");
     }
     
     public void Concentrarse(){
