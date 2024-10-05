@@ -6,15 +6,17 @@ package Estudiante_GUI;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Usuario
- */
 public class GUI_Estudiante extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GUI_Estudiante
-     */
+    int Documento;
+    String Nombres = "Null";
+    String Apellidos = "Null";
+    String Fecha_Nacimiento = "Null";
+    String Carrera = "Null";
+    String Semestre = "Null";
+    
+    Estudiante est = new Estudiante();
+    
     public GUI_Estudiante() {
         initComponents();
     }
@@ -42,8 +44,9 @@ public class GUI_Estudiante extends javax.swing.JFrame {
         Carreratxt = new javax.swing.JComboBox<>();
         Semestretxt = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Mostrarboton = new javax.swing.JButton();
         Nacimientotxt = new javax.swing.JTextField();
+        Crearboton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,12 +92,11 @@ public class GUI_Estudiante extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         jLabel8.setText("ESCOLAR");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
-        jButton1.setText("CREAR");
-        jButton1.setActionCommand("CREAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Mostrarboton.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        Mostrarboton.setText("MOSTRAR");
+        Mostrarboton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                MostrarbotonActionPerformed(evt);
             }
         });
 
@@ -104,18 +106,26 @@ public class GUI_Estudiante extends javax.swing.JFrame {
             }
         });
 
+        Crearboton.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        Crearboton.setText("CREAR");
+        Crearboton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearbotonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel1)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel1))
+                .addGap(42, 135, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -145,8 +155,13 @@ public class GUI_Estudiante extends javax.swing.JFrame {
                                     .addComponent(Apellidostxt, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Nombrestxt, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Documentotxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Nacimientotxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))))))
-                .addContainerGap(53, Short.MAX_VALUE))
+                                    .addComponent(Nacimientotxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(Crearboton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Mostrarboton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,7 +195,9 @@ public class GUI_Estudiante extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(Semestretxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Mostrarboton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Crearboton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -213,78 +230,53 @@ public class GUI_Estudiante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ApellidostxtActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        int Documento;
-        String Nombres;
-        String Apellidos;
-        String Fecha_Nacimiento;
-        String Carrera;
-        String Semestre;
-        
-        try {
-            
-            Documento = Integer.parseInt(Documentotxt.getText());
-            
-        } catch (NumberFormatException e) {
-            
-            JOptionPane.showMessageDialog(null, "Error, Formato Invalido");
-        }
-        
-        try {
-            
-            Nombres = Nombrestxt.getText();
-            
-        } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(null, "Error, Formato Invalido");
-        }
-        
-        try {
-            
-            Apellidos = Apellidostxt.getText();
-            
-        } catch (NumberFormatException e) {
-            
-            JOptionPane.showMessageDialog(null, "Error, Formato Invalido");
-        }
-        
-        try {
-            
-            Fecha_Nacimiento = Nacimientotxt.getText();
-            
-        } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(null, "Error, Formato Invalido");
-        }
-        
-        try {
-            
-            Carrera = (String) Carreratxt.getSelectedItem();
-            
-        } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(null, "Error, Formato Invalido");
-        }
-   
-        try {
-            
-            Semestre = (String) Semestretxt.getSelectedItem();
-            
-        } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(null, "Error, Invalido");
-        }
-        
-        Clase_Estudiante est = new Clase_Estudiante(Documento, Nombres, Apellidos, Fecha_Nacimiento, Carrera, Semestre);
-        
+    private void MostrarbotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarbotonActionPerformed
+
         est.MostrarDatos();
-                // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_MostrarbotonActionPerformed
 
     private void NacimientotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NacimientotxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NacimientotxtActionPerformed
+
+    private void CrearbotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearbotonActionPerformed
+        
+        
+        try {
+            
+            Documento = Integer.parseInt(Documentotxt.getText());
+            Nombres = Nombrestxt.getText();
+            Apellidos = Apellidostxt.getText();
+            Fecha_Nacimiento = Nacimientotxt.getText();
+            Carrera = Carreratxt.getSelectedItem().toString();
+            Semestre = Semestretxt.getSelectedItem().toString();
+            
+            if (Documento == 0||Nombres == "Null"||Apellidos == "Null"||Fecha_Nacimiento == "Null"||Carrera == "Null"||Semestre == "Null"){
+                
+                JOptionPane.showMessageDialog(null, "Por favor, Rellene todos los campos del formulario");
+            } else {
+                
+                JOptionPane.showMessageDialog(null, "Registro Completado Exitosamente");
+                
+                est.setDocumento(Documento);
+                est.setNombres(Nombres);
+                est.setApellidos(Apellidos);
+                est.setFecha_Nacimiento(Fecha_Nacimiento);
+                est.setCarrera(Carrera);
+                est.setSemestre(Semestre);
+        
+            }
+            
+        } catch (NumberFormatException e){
+        
+            JOptionPane.showMessageDialog(null, "Error, Formato Invalido");
+        
+        } catch (Exception a) {
+            
+            JOptionPane.showMessageDialog(null, "Error, revise el formato de la información");
+        }
+    }//GEN-LAST:event_CrearbotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -324,11 +316,12 @@ public class GUI_Estudiante extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Apellidostxt;
     private javax.swing.JComboBox<String> Carreratxt;
+    private javax.swing.JButton Crearboton;
     private javax.swing.JTextField Documentotxt;
+    private javax.swing.JButton Mostrarboton;
     private javax.swing.JTextField Nacimientotxt;
     private javax.swing.JTextField Nombrestxt;
     private javax.swing.JComboBox<String> Semestretxt;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

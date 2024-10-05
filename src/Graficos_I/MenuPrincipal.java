@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Graficos_I;
 import javax.swing.*;
 import java.awt.*;
@@ -165,9 +161,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             setOpaque(false);
             
             super.paint(g);
-            
-            
+
         }
-    
         
     }

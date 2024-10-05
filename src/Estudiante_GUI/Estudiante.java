@@ -1,7 +1,7 @@
 
 package Estudiante_GUI;
 
-public class Clase_Estudiante {
+public class Estudiante {
     
     private int Documento;
     private String Nombres;
@@ -10,16 +10,59 @@ public class Clase_Estudiante {
     private String Carrera;
     private String Semestre;
 
-    public Clase_Estudiante(int Documento, String Nombres, String Apellidos, String Fecha_Nacimiento, String Carrera, String Semestre) {
-        
-        this.Documento = Documento;
-        this.Nombres = Nombres;
-        this.Apellidos = Apellidos;
-        this.Fecha_Nacimiento = Fecha_Nacimiento;
-        this.Carrera = Carrera;
-        this.Semestre = Semestre;
-        
+    public Estudiante() {
+
     }
+
+    public int getDocumento() {
+        return Documento;
+    }
+
+    public void setDocumento(int Documento) {
+        this.Documento = Documento;
+    }
+
+    public String getNombres() {
+        return Nombres;
+    }
+
+    public void setNombres(String Nombres) {
+        this.Nombres = Nombres;
+    }
+
+    public String getApellidos() {
+        return Apellidos;
+    }
+
+    public void setApellidos(String Apellidos) {
+        this.Apellidos = Apellidos;
+    }
+
+    public String getFecha_Nacimiento() {
+        return Fecha_Nacimiento;
+    }
+
+    public void setFecha_Nacimiento(String Fecha_Nacimiento) {
+        this.Fecha_Nacimiento = Fecha_Nacimiento;
+    }
+
+    public String getCarrera() {
+        return Carrera;
+    }
+
+    public void setCarrera(String Carrera) {
+        this.Carrera = Carrera;
+    }
+
+    public String getSemestre() {
+        return Semestre;
+    }
+
+    public void setSemestre(String Semestre) {
+        this.Semestre = Semestre;
+    }
+    
+    
     
     public void MostrarDatos(){
         
